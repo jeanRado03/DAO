@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlet;
+package etu2014.framework.servlet;
 
+import etu2014.framework.Mapping;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +20,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "FrontServlet", urlPatterns = {"/"})
 public class FrontServlet extends HttpServlet {
+
+    HashMap<String, Mapping> MappingUrls;
+
+    public HashMap<String, Mapping> getMappingUrls() {
+        return MappingUrls;
+    }
+
+    public void setMappingUrls(HashMap<String, Mapping> MappingUrls) {
+        this.MappingUrls = MappingUrls;
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +48,7 @@ public class FrontServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet FrontServlet</title>");            
+            out.println("<title>Servlet FrontServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>URL: " + request.getServletPath() + "</h1>");
